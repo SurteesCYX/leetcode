@@ -18,3 +18,35 @@ Runtime: 48 ms, faster than 9.75% of Java online submissions for Two Sum.
 Memory Usage: 38.8 MB, less than 35.37% of Java online submissions for Two Sum.
 
 
+#改进，没有开辟a
+
+class Solution {
+
+public int[] twoSum(int[] nums, int target) {
+    for (int i = 0; i < nums.length; i++) {
+        for (int j = i + 1; j < nums.length; j++) {
+            if (nums[j]  + nums[i]== target) {
+                return new int[] { i, j };
+            }
+        }
+    }
+    throw new IllegalArgumentException("No two sum solution");
+}
+}
+
+Runtime: 18 ms, faster than 40.21% of Java online submissions for Two Sum.
+Memory Usage: 38.6 MB, less than 42.12% of Java online submissions for Two Sum.
+Next challenges:
+
+#官方算法1
+把 if (nums[j]  + nums[i]== target)写成(nums[j] == target - nums[i]) 
+Runtime: 14 ms, faster than 44.19% of Java online submissions for Two Sum.
+Memory Usage: 38.5 MB, less than 44.70% of Java online submissions for Two Sum.
+#官方算法2
+Two-pass Hash Table
+#官方算法3
+ One-pass Hash Table
+
+哈希树基本概念https://www.bilibili.com/video/av17500428
+
+

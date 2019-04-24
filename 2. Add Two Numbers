@@ -1,0 +1,36 @@
+#这里涉及到类里含next的概念，应该是栈（不确定我去查一下），写不出来，看了答案之后自己写了一遍
+
+/**
+ * Definition for singly-linked list.
+ * public class ListNode {
+ *     int val;
+ *     ListNode next;
+ *     ListNode(int x) { val = x; }
+ * }
+ */
+class Solution {
+    public ListNode addTwoNumbers(ListNode l1, ListNode l2) {
+    ListNode dummyHead = new ListNode(0);
+    ListNode p = l1, q = l2, curr = dummyHead;
+    int sum=0;int carry=0;
+    while(p!=null || q!=null){
+    int x = (p != null) ? p.val : 0;##
+    int y = (q != null) ? q.val : 0;
+    sum=x+y+carry;
+    curr.next=new ListNode(sum%10);
+    curr=curr.next;
+    carry=sum/10;###
+    if (p != null) p = p.next;#不能省，如果它后面没数了，但是q还有数，这个时候调不出p.next，但是运算得继续
+    if (q != null) q = q.next;
+    }
+    if (carry==1){
+    curr.next=new ListNode(1);
+    }
+    return dummyHead.next;#注意是返回dummyHead.next，因为dummyHead一开始设定为了0，要舍去，也不是curr或者curr.next，因为那都是里面的单个元素
+    }
+}
+
+Runtime: 2 ms, faster than 96.28% of Java online submissions for Add Two Numbers.
+Memory Usage: 45.2 MB, less than 60.70% of Java online submissions for Add Two Numbers.
+
+#https://www.youtube.com/watch?v=Ss6HQ8WB90c 用这种方法更方便理解

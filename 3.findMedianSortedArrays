@@ -1,0 +1,24 @@
+#不懂这道题为什么会显示难得级别，小白我都做出来了
+
+class Solution {
+    public double findMedianSortedArrays(int[] nums1, int[] nums2) {
+            ArrayList<Integer> a=new ArrayList<Integer>();
+            for(int i : nums1) {
+            	a.add(i);           	
+            }
+            for(int i : nums2) {
+            	a.add(i);           	
+            }
+    		Collections.sort(a);//针对一个ArrayList内部的数据排序
+    		if ( a.size()%2==1) {
+    			return a.get(a.size()/2);#要注意元素是从0开始的
+    		}else {
+    			return ( (a.get(a.size()/2-1)+a.get(a.size()/2)))/2.0;
+    		}     
+    }
+}
+Runtime: 7 ms, faster than 70.94% of Java online submissions for Median of Two Sorted Arrays.
+Memory Usage: 42.6 MB, less than 99.58% of Java online submissions for Median of Two Sorted Arrays.
+
+
+#实际它有时间的规定，所以我虽然不符合要求但是做的是对的

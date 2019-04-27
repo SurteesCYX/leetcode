@@ -1,0 +1,27 @@
+#很多基本的用法很明显不熟，又是一道看了答案才知道的题
+public class Solution {
+	public String longestPalindrome(String s) {
+		if (s==null || s.length()== 0) {return " ";} 
+		int end=0;
+		int start=0;
+		for (int i=0;i<s.length();i++) {
+			int result1=compare2s( s,i,i);
+			int result2=compare2s( s,i,i+1);
+			int result=Math.max(result1,result2);
+			if (result>end-start) {####要确定是最长的再才有机会赋值
+			start=i-(result-1)/2;
+			end=i+result/2;	
+		}}
+		return s.substring(start, end+1);
+	}
+	public int compare2s(String a,int left1,int right1) {
+		while(left1>=0 && right1<a.length() && a.charAt(left1)==a.charAt(right1)) {
+			left1--;
+			right1++;
+		}
+		return right1-left1-1;
+	}
+	
+  
+  Runtime: 6 ms, faster than 94.82% of Java online submissions for Longest Palindromic Substring.
+Memory Usage: 37.4 MB, less than 92.38% of Java online submissions for Longest Palindromic Substring.

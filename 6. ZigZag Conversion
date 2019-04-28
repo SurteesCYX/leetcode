@@ -1,0 +1,19 @@
+class Solution {
+    public String convert(String s, int numRows) {
+        if(numRows==1){return s;}
+        StringBuilder[] result=new StringBuilder[numRows];
+        int num_loop=2*numRows-2;
+        for (int i=0;i<result.length;i++){
+            result[i]=new StringBuilder();
+        }
+
+        for(int i=0;i<s.length();i++){
+            int index=i%(2*numRows-2);
+            index=index<numRows?index:2*numRows-2-index;
+            result[index].append(s.charAt(i));
+        }
+        for (int i=1;i<result.length;i++)
+                result[0].append(result[i]);
+        return result[0].toString();
+    }
+}

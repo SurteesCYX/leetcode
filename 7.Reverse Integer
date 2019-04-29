@@ -1,0 +1,35 @@
+#真实的简单的题
+class Solution {
+    public int reverse(int x) {
+        double b=0;
+        //ArrayList<integer> a=new ArrayList<integer>();
+        ArrayList<Integer> a = new ArrayList<Integer>();
+        if (x>0){        
+            while(x/10>0){
+            a.add(x%10);
+            x=x/10;
+        }
+        a.add(x);
+        //System.out.println(a);
+        for(int i=0;i<a.size();i++)
+            b=b+Math.pow(10,a.size()-1-i)*a.get(i);
+        if(b<-Math.pow(2,31) || b>Math.pow(2,31)-1){
+            return 0;}else{return (int)b;}
+
+    }else{
+        x=-x;
+        while(x/10>0){
+        a.add(x%10);
+        x=x/10;
+        }
+        a.add(x);
+        //System.out.println(a);
+        for(int i=0;i<a.size();i++)
+            b=b+Math.pow(10,a.size()-1-i)*a.get(i);
+        b=-b;
+        if(b<-Math.pow(2,31) || b>Math.pow(2,31)-1){
+            return 0;}else{return (int)b;}
+        }
+        }
+    }
+d但是内存量很大

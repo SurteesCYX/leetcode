@@ -1,0 +1,26 @@
+class Solution {
+    public int myAtoi(String str) {
+        str=str.trim();###放在第一行，注意消除str两旁的空格
+        if (str==null || str.length()==0) return 0;
+        //str=str.trim();
+        char firstchar  =str.charAt(0); 
+        int sig=1;
+        int start=0;
+        long res=0;###一定要是long型，要不然整数溢出算不了
+        if(firstchar=='+'){sig=1;start++;}
+        else if(firstchar=='-'){sig=-1;start++;}
+        for(int i= start;i<str.length();i++){
+            if (!Character.isDigit(str.charAt(i))){
+                return (int) res*sig;
+            }
+            //temp=str.charAt(start)-"0";
+            res=res*10+str.charAt(i)-'0';
+        if(res>Integer.MAX_VALUE && sig==1){return Integer.MAX_VALUE;}
+        if(res>Integer.MAX_VALUE && sig==-1){return Integer.MIN_VALUE;}
+        }
+        return (int)res*sig;
+    }
+
+}
+
+https://www.youtube.com/watch?v=vvua0G0eqsM

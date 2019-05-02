@@ -13,3 +13,5 @@ class Solution {
         //if(result==x)
     }
 }
+Runtime: 38 ms, faster than 70.95% of Java online submissions for Palindrome Number.
+Memory Usage: 37 MB, less than 100.00% of Java online submissions for Palindrome Number.

@@ -1,0 +1,23 @@
+class Solution {
+    public int maxArea(int[] height) {
+        int tempMAX=0;
+        for(int i=0;i<height.length;i++){
+            for(int j=i+1;j<height.length;j++){
+                int temp=addArea(height,i,j);
+                if(tempMAX<temp){
+                    tempMAX=temp;
+                }
+            }
+        }
+        return tempMAX;
+    }
+    public int addArea(int[] height,int a,int b){
+        int result=0;
+        result=(b-a)*Math.min(height[a],height[b]);
+        
+        return result;
+    }
+}
+
+Runtime: 201 ms, faster than 24.46% of Java online submissions for Container With Most Water.
+Memory Usage: 41 MB, less than 5.05% of Java online submissions for Container With Most Water.

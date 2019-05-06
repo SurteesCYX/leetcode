@@ -1,0 +1,36 @@
+#自己做的，但是一开始没有理解题目意思，它规定必须得从索引0开始
+class Solution {
+    public String longestCommonPrefix(String[] strs) {
+        if (strs==null || strs.length==0) return "";
+        String a=strs[0];
+        String b="";
+        int maxsub=0;
+        String  temp="";
+        int i=0;
+        for(int j=i;j<a.length()+1;j++){
+                 temp=a.substring(0,j);
+                 //System.out.println(i);
+                 //System.out.println(temp);
+                if (panduan(temp,strs)){
+                    if (maxsub<(temp).length()){
+                        maxsub=(temp).length();
+                        b=(temp);
+                    }
+                    
+                } 
+        }        
+
+    return b;
+    }
+    public boolean panduan(String a,String[] strs){
+        int e=0;
+        for(int k=0;k<strs.length;k++){
+            if (strs[k].startsWith(a)){e++;}            
+        }
+        return (e==strs.length);
+    }
+
+}
+
+Runtime: 2 ms, faster than 66.55% of Java online submissions for Longest Common Prefix.
+Memory Usage: 39 MB, less than 14.89% of Java online submissions for Longest Common Prefix.

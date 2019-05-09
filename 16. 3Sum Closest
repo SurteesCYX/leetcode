@@ -1,0 +1,25 @@
+#一开始没有理解题目，在理解题目之后有点想当然
+public class Solution {
+    public int threeSumClosest(int[] num, int target) {
+        Arrays.sort(num);
+        int result=num[0]+num[1]+num[num.length-1];
+        for(int i=0;i<num.length-2;i++){
+            int start=i+1;
+            int end=num.length-1;
+            while(start<end){
+            int temp=num[i]+num[start]+num[end];
+            if (temp<target){
+                start++;
+            }else if(temp>target){
+                end--;
+            }else if (temp==target){
+                return temp;######我之前是用result=temp这句话，但是超时了，直接迅速返回会更好
+            }
+            if (Math.abs(result-target)>Math.abs(temp-target)){
+                result=temp;
+            }
+        }
+    }
+        return result;
+}
+}
